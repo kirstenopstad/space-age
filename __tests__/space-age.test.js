@@ -22,12 +22,20 @@ describe('isPositiveNumber', () => {
 describe('Age', () => {
   let age;
   beforeEach(() => { 
-    age = new Age(36)
-  });
+    age = new Age(36);
+    const spaceAges = new Age(36);
+    spaceAges.mercuryAge = 8.64;
+    spaceAges.venusAge = 22.32;
+    spaceAges.marsAge = 67.68;
+    spaceAges.jupiterAge = 426.96;
+    });
 
-  // Create a class containing person's age
   test('It should create a class containing a persons age', () => {
     expect(age.earthAge).toEqual(36);
   });
 
-})
+  test('It should calculate age on Mercury', () => {
+    expect(age.getMercuryAge()).toEqual(8.64);
+  });
+  
+});
