@@ -40,4 +40,16 @@ export class Age {
   getJupiterAge() {
     return this.jupiterAge = roundToTwo(this.earthAge * 11.86)
   }
+
+  // Life Expectancy Methods ---------
+  getEarthExpectancy(lifeExpectancy) {
+    this.earthYears = lifeExpectancy - this.earthAge;
+    return this.earthYears;
+  }
+
+  getMercuryExpectancy(lifeExpectancy) {
+    this.mercuryYears = roundToTwo(lifeExpectancy * .24) - this.mercuryAge;
+    return this.mercuryYears;
+  }
 }
+
