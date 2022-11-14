@@ -21,9 +21,10 @@ describe('isPositiveNumber', () => {
 
 describe('Age', () => {
   let age;
+  let spaceAges;
   beforeEach(() => { 
     age = new Age(36);
-    const spaceAges = new Age(36);
+    spaceAges = new Age(36);
     spaceAges.mercuryAge = 8.64;
     spaceAges.venusAge = 22.32;
     spaceAges.marsAge = 67.68;
@@ -35,7 +36,10 @@ describe('Age', () => {
   });
 
   test('It should calculate age on Mercury', () => {
-    expect(age.getMercuryAge()).toEqual(8.64);
+    expect(age.getMercuryAge()).toEqual(spaceAges.mercuryAge);
   });
   
+  test('It should calculate age on Venus', () => {
+    expect(age.getVenusAge()).toEqual(spaceAges.venusAge);
+  });
 });
