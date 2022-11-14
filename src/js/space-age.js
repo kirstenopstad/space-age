@@ -42,38 +42,30 @@ export class Age {
   }
 
   // Life Expectancy Methods ---------
-  getSpaceYearsLeft(lifeExpectancy) {
-    Object.keys(this).forEach((planet) => {
-      const yearKey = "this." + planet + "Years";
-      let ageKey = "this." + planet + "Age";
-      const modifers = {earth: 1, mercury: .24, venus: .62, mars: 1.88, jupiter: 11.86}
-      ageKey = roundToTwo(lifeExpectancy * modifers.planet) - yearKey;
-    });
-  }
 
   getEarthExpectancy(lifeExpectancy) {
-    this.earthYears = lifeExpectancy - this.earthAge;
-    return roundToTwo(this.earthYears);
+    this.earthYears = roundToTwo(lifeExpectancy - this.earthAge);
+    return this.earthYears;
   }
 
   getMercuryExpectancy(lifeExpectancy) {
-    this.mercuryYears = roundToTwo(lifeExpectancy * .24) - this.mercuryAge;
-    return roundToTwo(this.mercuryYears);
+    this.mercuryYears = roundToTwo((lifeExpectancy * .24) - this.mercuryAge);
+    return this.mercuryYears;
   }
 
   getVenusExpectancy(lifeExpectancy) {
-    this.venusYears = roundToTwo(lifeExpectancy * .62) - this.venusAge;
-    return roundToTwo(this.venusYears);
+    this.venusYears = roundToTwo(roundToTwo(lifeExpectancy * .62) - this.venusAge);
+    return this.venusYears;
   }
 
   getMarsExpectancy(lifeExpectancy) {
-    this.marsYears = roundToTwo(lifeExpectancy * 1.88) - this.marsAge;
-    return roundToTwo(this.marsYears);
+    this.marsYears = roundToTwo((lifeExpectancy * 1.88) - this.marsAge);
+    return this.marsYears;
   }
 
   getJupiterExpectancy(lifeExpectancy) {
-    this.jupiterYears = roundToTwo(lifeExpectancy * 11.86) - this.jupiterAge;
-    return roundToTwo(this.jupiterYears);
+    this.jupiterYears = roundToTwo((lifeExpectancy * 11.86) - this.jupiterAge);
+    return this.jupiterYears;
   }
 }
 
