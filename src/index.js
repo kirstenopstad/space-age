@@ -1,27 +1,39 @@
-import { isPositiveNumber, roundToTwo, Age } from '../src/js/space-age.js';
+import { isPositiveNumber, Age } from '../src/js/space-age.js';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/styles.css';
+// import './css/styles.css';
 
 // UI Logic
 
-isPositiveNumber();
-roundToTwo();
-// Age();
-
-const handleSubmission = (event) => {
+// Handle submission
+function handleSubmission() {
   event.preventDefault();
-  document.getElementById("response").innerText = "You made it";
-  let age = document.getElementById("ageInput").value;
-  let lifeExpectancy = document.getElementById("lifeExpectancyInput").value;
-  let spaceAges = new Age(age, lifeExpectancy);
-  let ul = document.createElement("ul");
-  Object.keys(spaceAges).forEach((element) => {
-    let li = document.createElement("li");
-    li.innerText = element; 
-    ul.append(li);
-  });
-  document.getElementById("response").append(ul);
-};
+  // Retrieve user inputs
+  let inputAge = document.getElementById("ageInput").value;
+  let inputLifeExpectancy = document.getElementById("lifeExpectancyInput").value;
+  // Validate inputs
+  if (isPositiveNumber(inputAge) === false || isPositiveNumber(inputLifeExpectancy) === false) { 
+    // Display Error Message
+    document.getElementById("response").append("Please enter a valid number.");
+  } else {
+    // Create age object
+    let spaceAges = new Age(inputAge, inputLifeExpectancy);
+    // Display Error Message
+    document.getElementById("response").append("Success!");
+    document.getElementById("response").innerText = spaceAges;
 
-document.getElementById("form").addEventListener("submit", handleSubmission);
+    // let ul = document.createElement("ul");
+    // Object.keys(spaceAges).forEach((element) => {
+    //   let li = document.createElement("li");
+    //   li.innerText = element; 
+    //   ul.append(li);
+    // });
+    // document.getElementById("response").append(ul);
+  } 
+}
+
+// Listen for submit
+window.addEventListener("load", function() {
+  document.querySelector("form").addEventListener("submit", handleSubmission);
+});
+
