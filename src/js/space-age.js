@@ -42,6 +42,15 @@ export class Age {
   }
 
   // Life Expectancy Methods ---------
+  getSpaceYearsLeft(lifeExpectancy) {
+    Object.keys(this).forEach((planet) => {
+      const yearKey = "this." + planet + "Years";
+      let ageKey = "this." + planet + "Age";
+      const modifers = {earth: 1, mercury: .24, venus: .62, mars: 1.88, jupiter: 11.86}
+      ageKey = roundToTwo(lifeExpectancy * modifers.planet) - yearKey;
+    });
+  }
+
   getEarthExpectancy(lifeExpectancy) {
     this.earthYears = lifeExpectancy - this.earthAge;
     return roundToTwo(this.earthYears);
