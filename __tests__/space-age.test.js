@@ -87,6 +87,7 @@ describe('Age', () => {
   });
 
   test('It should calculate Mercury years left', () => {
+    age.getMercuryAge();
     expect(age.getMercuryExpectancy(79)).toEqual(expectedYearsLeft.mercuryYears);
   })
 
