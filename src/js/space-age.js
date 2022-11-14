@@ -35,4 +35,9 @@ export class Age {
   getMarsAge() {
     return roundToTwo(this.marsAge = this.earthAge * 1.88)
   }
+
+  // A Jupiter year is 11.86 Earth years.
+  getJupiterAge() {
+    return this.jupiterAge = roundToTwo(this.earthAge * 11.86)
+  }
 }
