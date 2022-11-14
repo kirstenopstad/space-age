@@ -1,4 +1,4 @@
-import { isPositiveNumber, Age } from '../src/js/space-age.js';
+import { isPositiveNumber, roundToTwo, Age } from '../src/js/space-age.js';
 
 describe('isPositiveNumber', () => {
 
@@ -15,6 +15,14 @@ describe('isPositiveNumber', () => {
   test('It should return true if positive number', () => {
     const number = "36";
     expect(isPositiveNumber(number)).toEqual(true);
+  });
+
+});
+
+describe('roundToTwo', () => {
+
+  test('It should return a number rounded to two decimal places', () => {
+    expect(roundToTwo(67.67999999999999)).toEqual(67.68)
   });
 
 });
