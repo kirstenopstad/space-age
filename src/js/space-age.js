@@ -70,6 +70,8 @@ export class Age {
 
   hasOutLivedExpectancy(age, lifeExpectancy) {
     if (lifeExpectancy - age < 0) {
+      return true;
+    } else {
       return false;
     }
   }
