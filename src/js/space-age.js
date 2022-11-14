@@ -11,6 +11,11 @@ export function isPositiveNumber(number) {
   };
 }
 
+export function roundToTwo(number) {
+  number = parseFloat(Number.parseFloat(number).toFixed(2));
+  return number;
+}
+
 export class Age {
   constructor(age){
     this.earthAge = age;
