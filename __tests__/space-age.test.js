@@ -42,4 +42,8 @@ describe('Age', () => {
   test('It should calculate age on Venus', () => {
     expect(age.getVenusAge()).toEqual(spaceAges.venusAge);
   });
+
+  test('It should calculate age on Mars', () => {
+    expect(age.getMarsAge()).toEqual(spaceAges.marsAge);
+  });
 });
