@@ -38,6 +38,8 @@ describe('Age', () => {
   let spaceAges;
   let expectedYearsLeft;
   let outlived;
+  let testAges
+  
   beforeEach(() => { 
     age = new Age(36, 79);
     
@@ -60,6 +62,17 @@ describe('Age', () => {
     outlived = new Age(36, 30);
     outlived.yearsOutlived = (roundToTwo(30 - age.earthAge)) * -1;
 
+    // Test
+    testAges = new Age(36, 79);
+    testAges.mercuryAge = 8.64;
+    testAges.venusAge = 22.32;
+    testAges.marsAge = 67.68;
+    testAges.jupiterAge = 426.96;
+    testAges.earthYears = roundToTwo(79 - age.earthAge);
+    testAges.mercuryYears = roundToTwo(18.96 - spaceAges.mercuryAge);
+    testAges.venusYears = roundToTwo(48.98 - spaceAges.venusAge);
+    testAges.marsYears = roundToTwo(148.52 - spaceAges.marsAge);
+    testAges.jupiterYears = roundToTwo(936.94 - spaceAges.jupiterAge);
     });
 
   // Space Age Tets
@@ -159,4 +172,8 @@ describe('Age', () => {
     expect(age.yearsOutlived(lifeExpectancy)).toEqual(outlived.yearsOutlived);
   })
 
+  test('It should return an object that includes ages & life expectancies', () => {
+    age.getAges();
+    expect(age).toMatchObject(testAges);
+  })
 });
