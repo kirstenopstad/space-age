@@ -67,5 +67,11 @@ export class Age {
     this.jupiterYears = roundToTwo((lifeExpectancy * 11.86) - this.jupiterAge);
     return this.jupiterYears;
   }
+
+  hasOutLivedExpectancy(age, lifeExpectancy) {
+    if (lifeExpectancy - age < 0) {
+      return false;
+    }
+  }
 }
 
