@@ -39,12 +39,14 @@ describe('Age', () => {
   let expectedYearsLeft;
   beforeEach(() => { 
     age = new Age(36);
+    
     // Space ages
     spaceAges = new Age(36);
     spaceAges.mercuryAge = 8.64;
     spaceAges.venusAge = 22.32;
     spaceAges.marsAge = 67.68;
     spaceAges.jupiterAge = 426.96;
+
     // Life expectancies (planetAge - planetYears)
     expectedYearsLeft = new Age(36);
     expectedYearsLeft.earthYears = roundToTwo(79 - age.earthAge);
@@ -104,5 +106,14 @@ describe('Age', () => {
   test('It should calculate Jupiter years left', () => {
     age.getJupiterAge();
     expect(age.getJupiterExpectancy(79)).toEqual(expectedYearsLeft.jupiterYears);
+  })
+
+  test('It should add life expectancies to Age object', () => {
+    age.getMercuryAge();
+    age.getVenusAge();
+    age.getMarsAge();
+    age.getJupiterAge();
+    age.getSpaceYearsLeft();
+    expect(age).toMatchObject(expectedYearsLeft);
   })
 });
