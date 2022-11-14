@@ -56,6 +56,7 @@ describe('Age', () => {
     expectedYearsLeft.jupiterYears = roundToTwo(936.94 - spaceAges.jupiterAge);
     });
 
+  // Space Age Tets
   test('It should create a class containing a persons age', () => {
     expect(age.earthAge).toEqual(36);
   });
@@ -83,7 +84,8 @@ describe('Age', () => {
     age.getJupiterAge();
     expect(age).toMatchObject(spaceAges);
   })
-  
+
+  // Life Expectancy Tests
   test('It should calculate earth years left', () => {
     expect(age.getEarthExpectancy(79)).toEqual(expectedYearsLeft.earthYears);
   });
@@ -119,10 +121,16 @@ describe('Age', () => {
     age.getVenusExpectancy(lifeExpectancy);
     age.getMarsExpectancy(lifeExpectancy);
     age.getJupiterExpectancy(lifeExpectancy);
-    console.log(age);
-    console.log(expectedYearsLeft);
     expect(age).toMatchObject(expectedYearsLeft);
-  })
+  });
 
-  // test('It should return positive value for key planetOutlived if yearsLeft is < 0')
+  test('It should return negative value if yearsLeft is < 0', () => {
+    age.getEarthExpectancy(30);
+    expect(age.getEarthExpectancy(30)).toEqual(-6);
+  });
+
+  test('It should return false if person has outlived life expectancy', () => {
+    const lifeExpectancy = 30;
+    expect(age.hasOutLivedExpectancy(age, lifeExpectancy)).toEqual(false);
+  })
 });
