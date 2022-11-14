@@ -75,5 +75,10 @@ export class Age {
       return false;
     }
   }
+
+  yearsOutlived(lifeExpectancy) {
+    this.outLivedBy = (this.earthAge - lifeExpectancy);
+    return this.outLivedBy;
+  }
 }
 
