@@ -17,8 +17,9 @@ export function roundToTwo(number) {
 }
 
 export class Age {
-  constructor(age){
+  constructor(age, lifeExpectancy){
     this.earthAge = age;
+    this.lifeExpectancy = lifeExpectancy;
   }
 
   // A Mercury year is .24 Earth years.
