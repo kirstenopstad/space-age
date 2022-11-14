@@ -37,6 +37,7 @@ describe('Age', () => {
   let age;
   let spaceAges;
   let expectedYearsLeft;
+  let outlived;
   beforeEach(() => { 
     age = new Age(36);
     
@@ -54,6 +55,11 @@ describe('Age', () => {
     expectedYearsLeft.venusYears = roundToTwo(48.98 - spaceAges.venusAge);
     expectedYearsLeft.marsYears = roundToTwo(148.52 - spaceAges.marsAge);
     expectedYearsLeft.jupiterYears = roundToTwo(936.94 - spaceAges.jupiterAge);
+
+    // Outlived earth years
+    outlived = new Age(36);
+    outlived.yearsOutlived = roundToTwo(30 - age.earthAge);
+
     });
 
   // Space Age Tets
@@ -137,5 +143,9 @@ describe('Age', () => {
   test('It should return false if person has not outlived life expectancy', () => {
     const lifeExpectancy = 79;
     expect(age.hasOutLivedExpectancy(age.earthAge, lifeExpectancy)).toEqual(false);
+  })
+
+  test('It should return planetYearsOutLived if they have outlived exp', () => {
+    expect(age.yearsOutlived()).toEqual(6);
   })
 });
