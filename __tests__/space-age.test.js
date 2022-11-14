@@ -1,4 +1,4 @@
-import { isPositiveNumber } from '../src/js/space-age.js';
+import { isPositiveNumber, Age } from '../src/js/space-age.js';
 
 describe('isPositiveNumber', () => {
 
@@ -20,5 +20,14 @@ describe('isPositiveNumber', () => {
 });
 
 describe('Age', () => {
+  let age;
+  beforeEach(() => { 
+    age = new Age(36)
+  });
+
   // Create a class containing person's age
+  test('It should create a class containing a persons age', () => {
+    expect(age.earthAge).toEqual(36);
+  });
+
 })
