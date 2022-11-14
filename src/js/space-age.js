@@ -44,12 +44,27 @@ export class Age {
   // Life Expectancy Methods ---------
   getEarthExpectancy(lifeExpectancy) {
     this.earthYears = lifeExpectancy - this.earthAge;
-    return this.earthYears;
+    return roundToTwo(this.earthYears);
   }
 
   getMercuryExpectancy(lifeExpectancy) {
     this.mercuryYears = roundToTwo(lifeExpectancy * .24) - this.mercuryAge;
-    return this.mercuryYears;
+    return roundToTwo(this.mercuryYears);
+  }
+
+  getVenusExpectancy(lifeExpectancy) {
+    this.venusYears = roundToTwo(lifeExpectancy * .62) - this.venusAge;
+    return roundToTwo(this.venusYears);
+  }
+
+  getMarsExpectancy(lifeExpectancy) {
+    this.marsYears = roundToTwo(lifeExpectancy * 1.88) - this.marsAge;
+    return roundToTwo(this.marsYears);
+  }
+
+  getJupiterExpectancy(lifeExpectancy) {
+    this.jupiterYears = roundToTwo(lifeExpectancy * 11.86) - this.jupiterAge;
+    return roundToTwo(this.jupiterYears);
   }
 }
 
