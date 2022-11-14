@@ -8,7 +8,7 @@ export function isPositiveNumber(number) {
     return false;
   } else {
     return true;
-  };
+  }
 }
 
 export function roundToTwo(number) {
@@ -24,22 +24,22 @@ export class Age {
 
   // A Mercury year is .24 Earth years.
   getMercuryAge() {
-    return this.mercuryAge = roundToTwo(this.earthAge * .24)
+    return this.mercuryAge = roundToTwo(this.earthAge * .24);
   }
 
   // A Venus year is .62 Earth years.
   getVenusAge() {
-    return this.venusAge = roundToTwo(this.earthAge * .62)
+    return this.venusAge = roundToTwo(this.earthAge * .62);
   }
 
   // A Mars year is 1.88 Earth years.
   getMarsAge() {
-    return this.marsAge = roundToTwo(this.earthAge * 1.88)
+    return this.marsAge = roundToTwo(this.earthAge * 1.88);
   }
 
   // A Jupiter year is 11.86 Earth years.
   getJupiterAge() {
-    return this.jupiterAge = roundToTwo(this.earthAge * 11.86)
+    return this.jupiterAge = roundToTwo(this.earthAge * 11.86);
   }
 
   // Life Expectancy Methods ---------
@@ -55,7 +55,7 @@ export class Age {
   }
 
   getVenusExpectancy(lifeExpectancy) {
-    this.venusYears = roundToTwo(roundToTwo(lifeExpectancy * .62) - this.venusAge);
+    this.venusYears = roundToTwo((lifeExpectancy * .62) - this.venusAge);
     return this.venusYears;
   }
 
