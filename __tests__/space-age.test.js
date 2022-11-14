@@ -47,11 +47,11 @@ describe('Age', () => {
     spaceAges.jupiterAge = 426.96;
     // Life expectancies (planetAge - planetYears)
     expectedYearsLeft = new Age(36);
-    expectedYearsLeft.earthYears = 79 - age.earthAge;
-    expectedYearsLeft.mercuryYears = 18.96 - spaceAges.mercuryAge;
-    expectedYearsLeft.venusYears = 48.98 - spaceAges.venusAge;
-    expectedYearsLeft.marsYears = 148.52 - spaceAges.marsAge;
-    expectedYearsLeft.jupiterYears = 936.94 - spaceAges.jupiterAge;
+    expectedYearsLeft.earthYears = roundToTwo(79 - age.earthAge);
+    expectedYearsLeft.mercuryYears = roundToTwo(18.96 - spaceAges.mercuryAge);
+    expectedYearsLeft.venusYears = roundToTwo(48.98 - spaceAges.venusAge);
+    expectedYearsLeft.marsYears = roundToTwo(148.52 - spaceAges.marsAge);
+    expectedYearsLeft.jupiterYears = roundToTwo(936.94 - spaceAges.jupiterAge);
     });
 
   test('It should create a class containing a persons age', () => {
@@ -91,4 +91,18 @@ describe('Age', () => {
     expect(age.getMercuryExpectancy(79)).toEqual(expectedYearsLeft.mercuryYears);
   })
 
+  test('It should calculate Venus years left', () => {
+    age.getVenusAge();
+    expect(age.getVenusExpectancy(79)).toEqual(expectedYearsLeft.venusYears);
+  })
+
+  test('It should calculate Mars years left', () => {
+    age.getMarsAge();
+    expect(age.getMarsExpectancy(79)).toEqual(expectedYearsLeft.marsYears);
+  })
+
+  test('It should calculate Jupiter years left', () => {
+    age.getJupiterAge();
+    expect(age.getJupiterExpectancy(79)).toEqual(expectedYearsLeft.jupiterYears);
+  })
 });
