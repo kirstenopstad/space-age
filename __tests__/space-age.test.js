@@ -131,6 +131,6 @@ describe('Age', () => {
 
   test('It should return false if person has outlived life expectancy', () => {
     const lifeExpectancy = 30;
-    expect(age.hasOutLivedExpectancy(age, lifeExpectancy)).toEqual(false);
+    expect(age.hasOutLivedExpectancy(age.earthAge, lifeExpectancy)).toEqual(false);
   })
 });
