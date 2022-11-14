@@ -109,11 +109,20 @@ describe('Age', () => {
   })
 
   test('It should add life expectancies to Age object', () => {
+    const lifeExpectancy = 79;
     age.getMercuryAge();
     age.getVenusAge();
     age.getMarsAge();
     age.getJupiterAge();
-    age.getSpaceYearsLeft();
+    age.getEarthExpectancy(lifeExpectancy);
+    age.getMercuryExpectancy(lifeExpectancy);
+    age.getVenusExpectancy(lifeExpectancy);
+    age.getMarsExpectancy(lifeExpectancy);
+    age.getJupiterExpectancy(lifeExpectancy);
+    console.log(age);
+    console.log(expectedYearsLeft);
     expect(age).toMatchObject(expectedYearsLeft);
   })
+
+  // test('It should return positive value for key planetOutlived if yearsLeft is < 0')
 });
