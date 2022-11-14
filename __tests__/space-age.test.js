@@ -25,6 +25,12 @@ describe('roundToTwo', () => {
     expect(roundToTwo(67.67999999999999)).toEqual(67.68)
   });
 
+  test('It should return a number as is if not exceeding two decimal places', () => {
+    expect(roundToTwo(67.67)).toEqual(67.67);
+    expect(roundToTwo(67.6)).toEqual(67.6);
+    expect(roundToTwo(67)).toEqual(67);
+  });
+
 });
 
 describe('Age', () => {
