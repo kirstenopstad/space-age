@@ -129,8 +129,13 @@ describe('Age', () => {
     expect(age.getEarthExpectancy(30)).toEqual(-6);
   });
 
-  test('It should return false if person has outlived life expectancy', () => {
+  test('It should return true if person has outlived life expectancy', () => {
     const lifeExpectancy = 30;
     expect(age.hasOutLivedExpectancy(age.earthAge, lifeExpectancy)).toEqual(false);
+  })
+
+  test('It should return false if person has not outlived life expectancy', () => {
+    const lifeExpectancy = 79;
+    expect(age.hasOutLivedExpectancy(age.earthAge, lifeExpectancy)).toEqual(true);
   })
 });
