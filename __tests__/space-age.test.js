@@ -58,7 +58,7 @@ describe('Age', () => {
 
     // Outlived earth years
     outlived = new Age(36);
-    outlived.yearsOutlived = roundToTwo(30 - age.earthAge);
+    outlived.yearsOutlived = (roundToTwo(30 - age.earthAge)) * -1;
 
     });
 
@@ -146,6 +146,7 @@ describe('Age', () => {
   })
 
   test('It should return planetYearsOutLived if they have outlived exp', () => {
-    expect(age.yearsOutlived()).toEqual(6);
+    const lifeExpectancy = 30;
+    expect(age.yearsOutlived(lifeExpectancy)).toEqual(outlived.yearsOutlived);
   })
 });
