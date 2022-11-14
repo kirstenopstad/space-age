@@ -39,17 +39,17 @@ describe('Age', () => {
   let expectedYearsLeft;
   let outlived;
   beforeEach(() => { 
-    age = new Age(36);
+    age = new Age(36, 79);
     
     // Space ages
-    spaceAges = new Age(36);
+    spaceAges = new Age(36, 79);
     spaceAges.mercuryAge = 8.64;
     spaceAges.venusAge = 22.32;
     spaceAges.marsAge = 67.68;
     spaceAges.jupiterAge = 426.96;
 
     // Life expectancies (planetAge - planetYears)
-    expectedYearsLeft = new Age(36);
+    expectedYearsLeft = new Age(36, 79);
     expectedYearsLeft.earthYears = roundToTwo(79 - age.earthAge);
     expectedYearsLeft.mercuryYears = roundToTwo(18.96 - spaceAges.mercuryAge);
     expectedYearsLeft.venusYears = roundToTwo(48.98 - spaceAges.venusAge);
@@ -57,7 +57,7 @@ describe('Age', () => {
     expectedYearsLeft.jupiterYears = roundToTwo(936.94 - spaceAges.jupiterAge);
 
     // Outlived earth years
-    outlived = new Age(36);
+    outlived = new Age(36, 30);
     outlived.yearsOutlived = (roundToTwo(30 - age.earthAge)) * -1;
 
     });
@@ -65,6 +65,11 @@ describe('Age', () => {
   // Space Age Tets
   test('It should create a class containing a persons age', () => {
     expect(age.earthAge).toEqual(36);
+  });
+
+  test('It should create a class containing a persons age & life expectancy', () => {
+    expect(age.earthAge).toEqual(36);
+    expect(age.lifeExpectancy).toEqual(79);
   });
 
   test('It should calculate age on Mercury', () => {
@@ -149,4 +154,5 @@ describe('Age', () => {
     const lifeExpectancy = 30;
     expect(age.yearsOutlived(lifeExpectancy)).toEqual(outlived.yearsOutlived);
   })
+
 });
