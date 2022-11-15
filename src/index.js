@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Handle submission
 function handleSubmission() {
   event.preventDefault();
+  let spaceAges = null;
+  document.getElementById("response").innerText = null;
   // Retrieve user inputs
   let inputAge = document.getElementById("ageInput").value;
   let inputLifeExpectancy = document.getElementById("lifeExpectancyInput").value;
@@ -17,18 +19,19 @@ function handleSubmission() {
     document.getElementById("response").append("Please enter a valid number.");
   } else {
     // Create age object
-    let spaceAges = new Age(inputAge, inputLifeExpectancy);
+    spaceAges = new Age(inputAge, inputLifeExpectancy);
+    spaceAges.getAges();
     // Display Error Message
     document.getElementById("response").append("Success!");
-    document.getElementById("response").innerText = spaceAges;
 
-    // let ul = document.createElement("ul");
-    // Object.keys(spaceAges).forEach((element) => {
-    //   let li = document.createElement("li");
-    //   li.innerText = element; 
-    //   ul.append(li);
-    // });
-    // document.getElementById("response").append(ul);
+    let ul = document.createElement("ul");
+    Object.keys(spaceAges).forEach((element) => {
+      let li = document.createElement("li");
+      element.toString("")
+      li.innerText = element + ": " + spaceAges[element] + " yrs"; 
+      ul.append(li);
+    });
+    document.getElementById("response").append(ul);
   } 
 }
 

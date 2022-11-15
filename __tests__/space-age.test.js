@@ -52,11 +52,11 @@ describe('Age', () => {
 
     // Life expectancies (planetAge - planetYears)
     expectedYearsLeft = new Age(36, 79);
-    expectedYearsLeft.earthYears = roundToTwo(79 - age.earthAge);
-    expectedYearsLeft.mercuryYears = roundToTwo(18.96 - spaceAges.mercuryAge);
-    expectedYearsLeft.venusYears = roundToTwo(48.98 - spaceAges.venusAge);
-    expectedYearsLeft.marsYears = roundToTwo(148.52 - spaceAges.marsAge);
-    expectedYearsLeft.jupiterYears = roundToTwo(936.94 - spaceAges.jupiterAge);
+    expectedYearsLeft.earthLifeExp = roundToTwo(79 - age.earthAge);
+    expectedYearsLeft.mercuryLifeExp = roundToTwo(18.96 - spaceAges.mercuryAge);
+    expectedYearsLeft.venusLifeExp = roundToTwo(48.98 - spaceAges.venusAge);
+    expectedYearsLeft.marsLifeExp = roundToTwo(148.52 - spaceAges.marsAge);
+    expectedYearsLeft.jupiterLifeExp = roundToTwo(936.94 - spaceAges.jupiterAge);
 
     // Outlived earth years
     outlived = new Age(36, 30);
@@ -67,11 +67,11 @@ describe('Age', () => {
     testAges.venusAge = 22.32;
     testAges.marsAge = 67.68;
     testAges.jupiterAge = 426.96;
-    testAges.earthYears = roundToTwo(79 - age.earthAge);
-    testAges.mercuryYears = roundToTwo(18.96 - spaceAges.mercuryAge);
-    testAges.venusYears = roundToTwo(48.98 - spaceAges.venusAge);
-    testAges.marsYears = roundToTwo(148.52 - spaceAges.marsAge);
-    testAges.jupiterYears = roundToTwo(936.94 - spaceAges.jupiterAge);
+    testAges.earthLifeExp = roundToTwo(79 - age.earthAge);
+    testAges.mercuryLifeExp = roundToTwo(18.96 - spaceAges.mercuryAge);
+    testAges.venusLifeExp = roundToTwo(48.98 - spaceAges.venusAge);
+    testAges.marsLifeExp = roundToTwo(148.52 - spaceAges.marsAge);
+    testAges.jupiterLifeExp = roundToTwo(936.94 - spaceAges.jupiterAge);
     });
 
   // Space Age Tets
@@ -114,27 +114,27 @@ describe('Age', () => {
 
   // Life Expectancy Tests
   test('It should calculate earth years left', () => {
-    expect(age.getEarthExpectancy(79)).toEqual(expectedYearsLeft.earthYears);
+    expect(age.getEarthExpectancy(79)).toEqual(expectedYearsLeft.earthLifeExp);
   });
 
   test('It should calculate Mercury years left', () => {
     age.getMercuryAge();
-    expect(age.getMercuryExpectancy(79)).toEqual(expectedYearsLeft.mercuryYears);
+    expect(age.getMercuryExpectancy(79)).toEqual(expectedYearsLeft.mercuryLifeExp);
   })
 
   test('It should calculate Venus years left', () => {
     age.getVenusAge();
-    expect(age.getVenusExpectancy(79)).toEqual(expectedYearsLeft.venusYears);
+    expect(age.getVenusExpectancy(79)).toEqual(expectedYearsLeft.venusLifeExp);
   })
 
   test('It should calculate Mars years left', () => {
     age.getMarsAge();
-    expect(age.getMarsExpectancy(79)).toEqual(expectedYearsLeft.marsYears);
+    expect(age.getMarsExpectancy(79)).toEqual(expectedYearsLeft.marsLifeExp);
   })
 
   test('It should calculate Jupiter years left', () => {
     age.getJupiterAge();
-    expect(age.getJupiterExpectancy(79)).toEqual(expectedYearsLeft.jupiterYears);
+    expect(age.getJupiterExpectancy(79)).toEqual(expectedYearsLeft.jupiterLifeExp);
   })
 
   test('It should add life expectancies to Age object', () => {
@@ -158,6 +158,6 @@ describe('Age', () => {
 
   test('It should return an object that includes yearsOutlived', () => {
     outlived.getAges();
-    expect(outlived.outLivedBy).toEqual(6);
+    expect(outlived.outLivedLifeExpBy).toEqual(6);
   });
 })

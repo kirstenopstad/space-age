@@ -30,7 +30,7 @@ export class Age {
     this.getMarsAge();
     this.getJupiterAge();
     // Get life expectancy
-    if (isPositiveNumber(this.getEarthExpectancy(this.lifeExpectancy))) {
+    if (isPositiveNumber(this.lifeExpectancy - this.earthAge)) {
       this.getEarthExpectancy();
       this.getMercuryExpectancy();
       this.getVenusExpectancy();
@@ -39,7 +39,7 @@ export class Age {
     } else {
       this.yearsOutlived();
     }
-    ;
+    
   }
 
   // A Mercury year is .24 Earth years.
@@ -65,32 +65,32 @@ export class Age {
   // Life Expectancy Methods ---------
 
   getEarthExpectancy() {
-    this.earthYears = roundToTwo(this.lifeExpectancy - this.earthAge);
-    return this.earthYears;
+    this.earthLifeExp = roundToTwo(this.lifeExpectancy - this.earthAge);
+    return this.earthLifeExp;
   }
 
   getMercuryExpectancy() {
-    this.mercuryYears = roundToTwo((this.lifeExpectancy * .24) - this.mercuryAge);
-    return this.mercuryYears;
+    this.mercuryLifeExp = roundToTwo((this.lifeExpectancy * .24) - this.mercuryAge);
+    return this.mercuryLifeExp;
   }
 
   getVenusExpectancy() {
-    this.venusYears = roundToTwo((this.lifeExpectancy * .62) - this.venusAge);
-    return this.venusYears;
+    this.venusLifeExp = roundToTwo((this.lifeExpectancy * .62) - this.venusAge);
+    return this.venusLifeExp;
   }
 
   getMarsExpectancy() {
-    this.marsYears = roundToTwo((this.lifeExpectancy * 1.88) - this.marsAge);
-    return this.marsYears;
+    this.marsLifeExp = roundToTwo((this.lifeExpectancy * 1.88) - this.marsAge);
+    return this.marsLifeExp;
   }
 
   getJupiterExpectancy() {
-    this.jupiterYears = roundToTwo((this.lifeExpectancy * 11.86) - this.jupiterAge);
-    return this.jupiterYears;
+    this.jupiterLifeExp = roundToTwo((this.lifeExpectancy * 11.86) - this.jupiterAge);
+    return this.jupiterLifeExp;
   }
 
   yearsOutlived() {
-    this.outLivedBy = (this.earthAge - this.lifeExpectancy);
-    return this.outLivedBy;
+    this.outLivedLifeExpBy = (this.earthAge - this.lifeExpectancy);
+    return this.outLivedLifeExpBy;
   }
 }
