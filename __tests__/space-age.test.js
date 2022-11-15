@@ -152,21 +152,6 @@ describe('Age', () => {
     expect(age).toMatchObject(expectedYearsLeft);
   });
 
-  test('It should return negative value if yearsLeft is < 0', () => {
-    age.getEarthExpectancy(30);
-    expect(age.getEarthExpectancy(30)).toEqual(-6);
-  });
-
-  test('It should return true if person has outlived life expectancy', () => {
-    const lifeExpectancy = 30;
-    expect(age.hasOutLivedExpectancy(age.earthAge, lifeExpectancy)).toEqual(true);
-  })
-
-  test('It should return false if person has not outlived life expectancy', () => {
-    const lifeExpectancy = 79;
-    expect(age.hasOutLivedExpectancy(age.earthAge, lifeExpectancy)).toEqual(false);
-  })
-
   test('It should return planetYearsOutLived if they have outlived exp', () => {
     const lifeExpectancy = 30;
     expect(age.yearsOutlived(lifeExpectancy)).toEqual(outlived.yearsOutlived);

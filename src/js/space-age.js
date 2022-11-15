@@ -89,14 +89,6 @@ export class Age {
     return this.jupiterYears;
   }
 
-  hasOutLivedExpectancy(age, lifeExpectancy) {
-    if (lifeExpectancy - age < 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   yearsOutlived(lifeExpectancy) {
     this.outLivedBy = (this.earthAge - lifeExpectancy);
     return this.outLivedBy;
