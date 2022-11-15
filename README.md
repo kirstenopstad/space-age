@@ -58,7 +58,7 @@ $ npm install
 ```
 $ npm run start
 ```
-* To lint the aplplication, run:
+* To lint the application, run:
 ```
 $ npm run lint
 ```
