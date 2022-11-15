@@ -22,6 +22,26 @@ export class Age {
     this.lifeExpectancy = lifeExpectancy;
   }
 
+  getAges() {
+    // Get age by planet
+    this.getMercuryAge();
+    this.getVenusAge();
+    this.getVenusAge();
+    this.getMarsAge();
+    this.getJupiterAge();
+    // Get life expectancy
+    if (isPositiveNumber(this.getEarthExpectancy(this.lifeExpectancy))) {
+      this.getEarthExpectancy();
+      this.getMercuryExpectancy();
+      this.getVenusExpectancy();
+      this.getMarsExpectancy();
+      this.getJupiterExpectancy();
+    } else {
+      this.yearsOutlived(this.lifeExpectancy);
+    }
+    ;
+  }
+
   // A Mercury year is .24 Earth years.
   getMercuryAge() {
     return this.mercuryAge = roundToTwo(this.earthAge * .24);
@@ -44,28 +64,28 @@ export class Age {
 
   // Life Expectancy Methods ---------
 
-  getEarthExpectancy(lifeExpectancy) {
-    this.earthYears = roundToTwo(lifeExpectancy - this.earthAge);
+  getEarthExpectancy() {
+    this.earthYears = roundToTwo(this.lifeExpectancy - this.earthAge);
     return this.earthYears;
   }
 
-  getMercuryExpectancy(lifeExpectancy) {
-    this.mercuryYears = roundToTwo((lifeExpectancy * .24) - this.mercuryAge);
+  getMercuryExpectancy() {
+    this.mercuryYears = roundToTwo((this.lifeExpectancy * .24) - this.mercuryAge);
     return this.mercuryYears;
   }
 
-  getVenusExpectancy(lifeExpectancy) {
-    this.venusYears = roundToTwo((lifeExpectancy * .62) - this.venusAge);
+  getVenusExpectancy() {
+    this.venusYears = roundToTwo((this.lifeExpectancy * .62) - this.venusAge);
     return this.venusYears;
   }
 
-  getMarsExpectancy(lifeExpectancy) {
-    this.marsYears = roundToTwo((lifeExpectancy * 1.88) - this.marsAge);
+  getMarsExpectancy() {
+    this.marsYears = roundToTwo((this.lifeExpectancy * 1.88) - this.marsAge);
     return this.marsYears;
   }
 
-  getJupiterExpectancy(lifeExpectancy) {
-    this.jupiterYears = roundToTwo((lifeExpectancy * 11.86) - this.jupiterAge);
+  getJupiterExpectancy() {
+    this.jupiterYears = roundToTwo((this.lifeExpectancy * 11.86) - this.jupiterAge);
     return this.jupiterYears;
   }
 
