@@ -37,7 +37,7 @@ export class Age {
       this.getMarsExpectancy();
       this.getJupiterExpectancy();
     } else {
-      this.yearsOutlived(this.lifeExpectancy);
+      this.yearsOutlived();
     }
     ;
   }
@@ -89,9 +89,8 @@ export class Age {
     return this.jupiterYears;
   }
 
-  yearsOutlived(lifeExpectancy) {
-    this.outLivedBy = (this.earthAge - lifeExpectancy);
+  yearsOutlived() {
+    this.outLivedBy = (this.earthAge - this.lifeExpectancy);
     return this.outLivedBy;
   }
 }
-

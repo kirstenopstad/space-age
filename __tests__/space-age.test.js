@@ -60,7 +60,6 @@ describe('Age', () => {
 
     // Outlived earth years
     outlived = new Age(36, 30);
-    outlived.yearsOutlived = (roundToTwo(30 - age.earthAge)) * -1;
 
     // Test
     testAges = new Age(36, 79);
@@ -152,13 +151,13 @@ describe('Age', () => {
     expect(age).toMatchObject(expectedYearsLeft);
   });
 
-  test('It should return planetYearsOutLived if they have outlived exp', () => {
-    const lifeExpectancy = 30;
-    expect(age.yearsOutlived(lifeExpectancy)).toEqual(outlived.yearsOutlived);
-  })
-
   test('It should return an object that includes ages & life expectancies', () => {
     age.getAges();
     expect(age).toMatchObject(testAges);
-  })
-});
+  });
+
+  test('It should return an object that includes yearsOutlived', () => {
+    outlived.getAges();
+    expect(outlived.outLivedBy).toEqual(6);
+  });
+})
