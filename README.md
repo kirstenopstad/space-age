@@ -39,7 +39,7 @@ Follow a commit workflow to demonstrate your understanding of the Red, Green, Re
 
 ![Screenshots](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.03bZmDGXaBhBYyxxp3Ls3gHaEA%26pid%3DApi&f=1&ipt=e980d57210242747a51c41421e1f09a6de3b1fdaeaadd297496787bb64e80c88&ipo=images) -->
 
-<-- [Link to operational site!](https://kirstenopstad.github.io/space-age/) -->
+<!-- [Link to operational site!](https://kirstenopstad.github.io/space-age/) -->
 
 ### Goals
 1. Meet project MVP requirements.
