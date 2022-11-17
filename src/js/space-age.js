@@ -24,22 +24,27 @@ export class Age {
   }
 
   getAges() {
-    // Get age by planet
-    this.getMercuryAge();
-    this.getVenusAge();
-    this.getVenusAge();
-    this.getMarsAge();
-    this.getJupiterAge();
-    // Get life expectancy
-    if (isPositiveNumber(this.lifeExpectancy - this.earthAge)) {
-      this.getEarthExpectancy();
-      this.getMercuryExpectancy();
-      this.getVenusExpectancy();
-      this.getMarsExpectancy();
-      this.getJupiterExpectancy();
-    } else {
-      this.yearsOutlived();
-    }
+    // New function to get age on each planet
+    const planets = Object.keys(this.planets);
+    planets.forEach((planet) => {
+      this[planet] = roundToTwo(this.earthAge * this.planets[planet])
+    });
+    // // Get age by planet
+    // this.getMercuryAge();
+    // this.getVenusAge();
+    // this.getVenusAge();
+    // this.getMarsAge();
+    // this.getJupiterAge();
+    // // Get life expectancy
+    // if (isPositiveNumber(this.lifeExpectancy - this.earthAge)) {
+    //   this.getEarthExpectancy();
+    //   this.getMercuryExpectancy();
+    //   this.getVenusExpectancy();
+    //   this.getMarsExpectancy();
+    //   this.getJupiterExpectancy();
+    // } else {
+    //   this.yearsOutlived();
+    // }
     
   }
 
