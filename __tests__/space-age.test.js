@@ -84,6 +84,12 @@ describe('Age', () => {
     expect(age.lifeExpectancy).toEqual(79);
   });
 
+  test('It should create a class containing keys of planets and values of factors', () => {
+    expect(age.earthAge).toEqual(36);
+    expect(age.lifeExpectancy).toEqual(79);
+    expect(age.planets).toEqual({mercury: .24, venus: .62, mars: 1.88, jupiter: 11.86})
+  });
+
   test('It should calculate age on Mercury', () => {
     age.getMercuryAge();
     expect(age.mercuryAge).toEqual(spaceAges.mercuryAge);
