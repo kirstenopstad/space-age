@@ -43,6 +43,9 @@ describe('Age', () => {
   beforeEach(() => { 
     age = new Age(36, 79);
     
+    // Planets
+    age.planets = {mercury: .24, venus: .62, mars: 1.88, jupiter: 11.86};
+
     // Space ages
     spaceAges = new Age(36, 79);
     spaceAges.mercuryAge = 8.64;
@@ -90,8 +93,9 @@ describe('Age', () => {
     expect(age.planets).toEqual({mercury: .24, venus: .62, mars: 1.88, jupiter: 11.86})
   });
 
+  // TODO: Refactor test
   test('It should calculate age on Mercury', () => {
-    age.getMercuryAge();
+    age.getAges();
     expect(age.mercuryAge).toEqual(spaceAges.mercuryAge);
   });
   
@@ -110,6 +114,7 @@ describe('Age', () => {
     expect(age.jupiterAge).toEqual(spaceAges.jupiterAge);
   });
 
+  // TODO: Refactor test
   test('It should add calculated space ages to Age object', () => {
     age.getMercuryAge();
     age.getVenusAge();
@@ -143,6 +148,7 @@ describe('Age', () => {
     expect(age.getJupiterExpectancy(79)).toEqual(expectedYearsLeft.jupiterLifeExp);
   })
 
+  // TODO: Refactor test
   test('It should add life expectancies to Age object', () => {
     const lifeExpectancy = 79;
     age.getMercuryAge();
@@ -157,11 +163,13 @@ describe('Age', () => {
     expect(age).toMatchObject(expectedYearsLeft);
   });
 
+  // TODO: Refactor test
   test('It should return an object that includes ages & life expectancies', () => {
     age.getAges();
     expect(age).toMatchObject(testAges);
   });
 
+  // TODO: Refactor test
   test('It should return an object that includes yearsOutlived', () => {
     outlived.getAges();
     expect(outlived.outLivedLifeExpBy).toEqual(6);
