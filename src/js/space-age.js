@@ -20,23 +20,39 @@ export class Age {
   constructor(age, lifeExpectancy){
     this.earthAge = age;
     this.lifeExpectancy = lifeExpectancy;
-    this.planets = {mercury: .24, venus: .62, mars: 1.88, jupiter: 11.86};
+    this.planets = {earth: 1, mercury: .24, venus: .62, mars: 1.88, jupiter: 11.86};
+    this.planetAges = {earth: '', mercury: '', venus: '', mars: '', jupiter: ''};
+    this.planetLifeExp = {earth: 0, mercury: 0, venus: 0, mars: 0, jupiter: 0};
+    this.planetYearsOutlived = {earth: 0, mercury: 0, venus: 0, mars: 0, jupiter: 0};
   }
 
   getAges() {
     // New function to get age on each planet
     const planets = Object.keys(this.planets);
     planets.forEach((planet) => {
-      this[planet] = roundToTwo(this.earthAge * this.planets[planet])
+      this.planetAges[planet] = roundToTwo(this.earthAge * this.planets[planet])
     });
+    if (isPositiveNumber(this.lifeExpectancy - this.earthAge)) {
+      // New function to get life exp on each planet
+      planets.forEach((planet) => {
+        this.planetLifeExp[planet] = roundToTwo((this.lifeExpectancy * this.planets[planet]) - this.planetAges[planet]);
+      });
+    } else {
+      planets.forEach((planet) => {
+        // New function to get years outlived on each planet
+        this.planetYearsOutlived[planet] = roundToTwo((this.planetAges[planet] - this.planetLifeExp[planet]));
+      })
+    }
     // // Get age by planet
     // this.getMercuryAge();
     // this.getVenusAge();
     // this.getVenusAge();
     // this.getMarsAge();
     // this.getJupiterAge();
-    // // Get life expectancy
+
+    // Get life expectancy
     // if (isPositiveNumber(this.lifeExpectancy - this.earthAge)) {
+
     //   this.getEarthExpectancy();
     //   this.getMercuryExpectancy();
     //   this.getVenusExpectancy();
