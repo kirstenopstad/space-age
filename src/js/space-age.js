@@ -20,6 +20,7 @@ export class Age {
   constructor(age, lifeExpectancy){
     this.earthAge = age;
     this.lifeExpectancy = lifeExpectancy;
+    this.planets = {mercury: .24, venus: .62, mars: 1.88, jupiter: 11.86};
   }
 
   getAges() {
