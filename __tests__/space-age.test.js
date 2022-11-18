@@ -114,10 +114,15 @@ describe('Age', () => {
   });
 
   // Life Expectancy Tests
-  test('It should calculate earth years left', () => {
+  // test('It should calculate earth years left', () => {
+  //   age.getAges();
+  //   expect(age.planetLifeExp.earth).toEqual(expectedYearsLeft.earthLifeExp);
+  // });
+
+  test('It should calculate Earth years left', () => {
     age.getAges();
     expect(age.planetLifeExp.earth).toEqual(expectedYearsLeft.earthLifeExp);
-  });
+  })
 
   test('It should calculate Mercury years left', () => {
     age.getAges();
@@ -138,12 +143,6 @@ describe('Age', () => {
     age.getAges();
     expect(age.planetLifeExp.jupiter).toEqual(expectedYearsLeft.jupiterLifeExp);
   })
-
-  // TODO: Refactor test
-  test('It should return an object that includes ages & life expectancies', () => {
-    age.getAges();
-    expect(age).toInclude(testAges);
-  });
 
   // TODO: Refactor test
   test('It should return an object that includes yearsOutlived', () => {
