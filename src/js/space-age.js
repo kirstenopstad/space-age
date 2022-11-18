@@ -21,7 +21,7 @@ export class Age {
     this.earthAge = age;
     this.lifeExpectancy = lifeExpectancy;
     this.planets = {earth: 1, mercury: .24, venus: .62, mars: 1.88, jupiter: 11.86};
-    this.planetAges = {earth: '', mercury: '', venus: '', mars: '', jupiter: ''};
+    this.planetAges = {earth: 0, mercury: 0, venus: 0, mars: 0, jupiter: 0};
     this.planetLifeExp = {earth: 0, mercury: 0, venus: 0, mars: 0, jupiter: 0};
     this.planetYearsOutlived = {earth: 0, mercury: 0, venus: 0, mars: 0, jupiter: 0};
   }
