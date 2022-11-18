@@ -25,11 +25,22 @@ function handleSubmission() {
     document.getElementById("response").append("Success!");
 
     let ul = document.createElement("ul");
+    // TODO: Fix UI to display ages instead of Object object
     Object.keys(spaceAges).forEach((element) => {
       let li = document.createElement("li");
-      element.toString("")
-      li.innerText = element + ": " + spaceAges[element] + " yrs"; 
-      ul.append(li);
+      if (typeof element === 'object') {
+        Object.keys(spaceAges).forEach((nestedElement) => {
+          let nestedUl = document.createElement("ul");
+          nestedElement.toString("");
+          let nestedLi = document.createElement("li");
+          nestedElement.innerText = nestedElement + ": " + nestedElement[element] + " yrs";
+          nestedUl.append(nestedLi); 
+        })
+      } else {
+        element.toString("")
+        li.innerText = element + ": " + spaceAges[element] + " yrs"; 
+        ul.append(li);
+      }
     });
     document.getElementById("response").append(ul);
   } 
