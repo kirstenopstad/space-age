@@ -142,7 +142,7 @@ describe('Age', () => {
   // TODO: Refactor test
   test('It should return an object that includes ages & life expectancies', () => {
     age.getAges();
-    expect(age).toMatchObject(testAges);
+    expect(age).toInclude(testAges);
   });
 
   // TODO: Refactor test
