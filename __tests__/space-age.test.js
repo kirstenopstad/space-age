@@ -140,21 +140,6 @@ describe('Age', () => {
   })
 
   // TODO: Refactor test
-  test('It should add life expectancies to Age object', () => {
-    const lifeExpectancy = 79;
-    age.getMercuryAge();
-    age.getVenusAge();
-    age.getMarsAge();
-    age.getJupiterAge();
-    age.getEarthExpectancy(lifeExpectancy);
-    age.getMercuryExpectancy(lifeExpectancy);
-    age.getVenusExpectancy(lifeExpectancy);
-    age.getMarsExpectancy(lifeExpectancy);
-    age.getJupiterExpectancy(lifeExpectancy);
-    expect(age).toMatchObject(expectedYearsLeft);
-  });
-
-  // TODO: Refactor test
   test('It should return an object that includes ages & life expectancies', () => {
     age.getAges();
     expect(age).toMatchObject(testAges);
