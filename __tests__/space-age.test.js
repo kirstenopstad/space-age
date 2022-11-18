@@ -93,25 +93,24 @@ describe('Age', () => {
     expect(age.planets).toEqual({mercury: .24, venus: .62, mars: 1.88, jupiter: 11.86})
   });
 
-  // TODO: Refactor test
   test('It should calculate age on Mercury', () => {
     age.getAges();
-    expect(age.mercuryAge).toEqual(spaceAges.mercuryAge);
+    expect(age.planetAges.mercury).toEqual(spaceAges.mercuryAge);
   });
   
   test('It should calculate age on Venus', () => {
-    age.getVenusAge();
-    expect(age.venusAge).toEqual(spaceAges.venusAge);
+    age.getAges();
+    expect(age.planetAges.venus).toEqual(spaceAges.venusAge);
   });
 
   test('It should calculate age on Mars', () => {
-    age.getMarsAge();
-    expect(age.marsAge).toEqual(spaceAges.marsAge);
+    age.getAges();
+    expect(age.planetAges.mars).toEqual(spaceAges.marsAge);
   });
 
   test('It should calculate age on Jupiter', () => {
-    age.getJupiterAge();
-    expect(age.jupiterAge).toEqual(spaceAges.jupiterAge);
+    age.getAges();
+    expect(age.planetAges.jupiter).toEqual(spaceAges.jupiterAge);
   });
 
   // TODO: Refactor test
