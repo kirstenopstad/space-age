@@ -113,15 +113,6 @@ describe('Age', () => {
     expect(age.planetAges.jupiter).toEqual(spaceAges.jupiterAge);
   });
 
-  // TODO: Refactor test
-  test('It should add calculated space ages to Age object', () => {
-    age.getMercuryAge();
-    age.getVenusAge();
-    age.getMarsAge();
-    age.getJupiterAge();
-    expect(age).toMatchObject(spaceAges);
-  })
-
   // Life Expectancy Tests
   test('It should calculate earth years left', () => {
     expect(age.getEarthExpectancy(79)).toEqual(expectedYearsLeft.earthLifeExp);
