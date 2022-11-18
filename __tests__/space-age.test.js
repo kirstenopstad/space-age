@@ -115,27 +115,28 @@ describe('Age', () => {
 
   // Life Expectancy Tests
   test('It should calculate earth years left', () => {
-    expect(age.getEarthExpectancy(79)).toEqual(expectedYearsLeft.earthLifeExp);
+    age.getAges();
+    expect(age.planetLifeExp.earth).toEqual(expectedYearsLeft.earthLifeExp);
   });
 
   test('It should calculate Mercury years left', () => {
-    age.getMercuryAge();
-    expect(age.getMercuryExpectancy(79)).toEqual(expectedYearsLeft.mercuryLifeExp);
+    age.getAges();
+    expect(age.planetLifeExp.mercury).toEqual(expectedYearsLeft.mercuryLifeExp);
   })
 
   test('It should calculate Venus years left', () => {
-    age.getVenusAge();
-    expect(age.getVenusExpectancy(79)).toEqual(expectedYearsLeft.venusLifeExp);
+    age.getAges();
+    expect(age.planetLifeExp.venus).toEqual(expectedYearsLeft.venusLifeExp);
   })
 
   test('It should calculate Mars years left', () => {
-    age.getMarsAge();
-    expect(age.getMarsExpectancy(79)).toEqual(expectedYearsLeft.marsLifeExp);
+    age.getAges();
+    expect(age.planetLifeExp.mars).toEqual(expectedYearsLeft.marsLifeExp);
   })
 
   test('It should calculate Jupiter years left', () => {
-    age.getJupiterAge();
-    expect(age.getJupiterExpectancy(79)).toEqual(expectedYearsLeft.jupiterLifeExp);
+    age.getAges();
+    expect(age.planetLifeExp.jupiter).toEqual(expectedYearsLeft.jupiterLifeExp);
   })
 
   // TODO: Refactor test
