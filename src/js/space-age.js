@@ -40,12 +40,9 @@ export class Age {
     } else {
       planets.forEach((planet) => {
         // New function to get years outlived on each planet
-        this.planetYearsOutlived[planet] = roundToTwo((this.planetAges[planet] - this.planetLifeExp[planet]));
+        this.planetYearsOutlived[planet] = roundToTwo((this.planetAges[planet] - (this.lifeExpectancy * this.planets[planet])));
       })
     }
-
-  yearsOutlived() {
-    this.outLivedLifeExpBy = (this.earthAge - this.lifeExpectancy);
-    return this.outLivedLifeExpBy;
   }
+  
 }
