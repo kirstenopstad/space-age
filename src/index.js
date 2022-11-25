@@ -21,26 +21,29 @@ function handleSubmission() {
     // Create age object
     spaceAges = new Age(inputAge, inputLifeExpectancy);
     spaceAges.getAges();
-    // Display Error Message
+    // Display Success Message
     document.getElementById("response").append("Success!");
-
+    // Display Results
     let ul = document.createElement("ul");
-    // TODO: Fix UI to display ages instead of Object object
     Object.keys(spaceAges).forEach((element) => {
       let li = document.createElement("li");
-      if (typeof element === 'object') {
-        Object.keys(spaceAges).forEach((nestedElement) => {
+      element.toString("");
+      li.innerText = element + ": ";
+      // If object property contains object, display all nested information
+      if (typeof spaceAges[element] != 'string') {
+        Object.keys(spaceAges[element]).forEach((nestedElement) => {
           let nestedUl = document.createElement("ul");
           nestedElement.toString("");
           let nestedLi = document.createElement("li");
-          nestedElement.innerText = nestedElement + ": " + nestedElement[element] + " yrs";
+          nestedLi.innerText = nestedElement + ": " + spaceAges[element][nestedElement] + " yrs";
           nestedUl.append(nestedLi); 
-        })
+          li.append(nestedUl);
+          ul.append(li);
+        });
       } else {
-        element.toString("")
-        li.innerText = element + ": " + spaceAges[element] + " yrs"; 
-        ul.append(li);
+        li.append(spaceAges[element] + " yrs"); 
       }
+      ul.append(li);
     });
     document.getElementById("response").append(ul);
   } 
