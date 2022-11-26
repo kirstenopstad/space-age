@@ -21,9 +21,11 @@ function handleSubmission() {
     // Create age object
     spaceAges = new Age(inputAge, inputLifeExpectancy);
     spaceAges.getAges();
-    // Display Success Message
-    document.getElementById("response").append("Success!");
-    // Display Results
+    // Display Results Heading
+    let h2 = document.createElement("h2");
+    document.getElementById("response").append(h2);
+    h2.innerText = "Your Space Ages";
+    // Display spaceAges object data
     let ul = document.createElement("ul");
     Object.keys(spaceAges).forEach((element) => {
       let li = document.createElement("li");
@@ -46,6 +48,9 @@ function handleSubmission() {
       ul.append(li);
     });
     document.getElementById("response").append(ul);
+    // Make null user input fields
+    document.getElementById("ageInput").value = null;
+    document.getElementById("lifeExpectancyInput").value = null;
   } 
 }
 
