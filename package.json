@@ -2,7 +2,7 @@
   "name": "js-template",
   "version": "1.0.0",
   "repository": {
-    "url": "git+https://github.com/{USERNAME}/{REPONAME}.git"
+    "url": "git+https://github.com/{kirstenopstad}/{space-age}.git"
   },
   "description": "Space Age By Kirsten Opstad",
   "main": "index.js",
