@@ -58,10 +58,6 @@ $ npm install
 ```
 $ npm run start
 ```
-* To lint the application, run:
-```
-$ npm run lint
-```
 * To run tests with Jest, run:
 ```
 $ npm run test
