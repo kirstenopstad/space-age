@@ -30,7 +30,7 @@ export class Age {
     // New function to get age on each planet
     const planets = Object.keys(this.planets);
     planets.forEach((planet) => {
-      this.planetAges[planet] = roundToTwo(this.earthAge * this.planets[planet])
+      this.planetAges[planet] = roundToTwo(this.earthAge * this.planets[planet]);
     });
     if (isPositiveNumber(this.lifeExpectancy - this.earthAge)) {
       // New function to get life exp on each planet
@@ -41,7 +41,7 @@ export class Age {
       planets.forEach((planet) => {
         // New function to get years outlived on each planet
         this.planetYearsOutlived[planet] = roundToTwo((this.planetAges[planet] - (this.lifeExpectancy * this.planets[planet])));
-      })
+      });
     }
   }
   
